@@ -35,55 +35,74 @@ body {
   z-index: -1;
 }
 
-/* Header Navigation Styles */
-.nav-menu {
+.wrapper h1 {
+  font-size: 30px;
+  text-align: center;
+}
+
+.wrapper .input-box {
+  position: relative;
   width: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 1rem 2rem;
-  position: fixed;
-  top: 0;
-  left: 0;
+  height: 50px;
+  margin: 30px 0;
+}
+
+.input-box input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.wrapper .remember-forgot {
   display: flex;
   justify-content: space-between;
+  font-size: 15px;
+  margin: 10px 0 15px; /* Changed from -15px to 15px to add padding */
   align-items: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  box-sizing: border-box;
 }
 
-.logo {
+.remember-forgot label {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Increased from 3px to 8px for more space between checkbox and text */
+  white-space: nowrap;
+}
+
+.remember-forgot label input {
+  accent-color: #fff;
   margin: 0;
-  font-size: 1.5rem;
-  color: white;
+  order: -1;
 }
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  color: white;
+.remember-forgot a {
+  color: #fff;
   text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: var(--accent-color);
+.remember-forgot a:hover {
+  text-decoration: underline;
 }
 
-.container {
-  position: relative;
-  z-index: 1;
-  width: var(--container-width);
-  margin: 0 auto;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 50vh;
+.wrapper .register-link {
+  font-size: 16px;
+  text-align: center;
+  margin: 30px 0 15px;
+}
+
+.register-link p a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link p a:hover {
+  text-decoration: underline;
 }
 
 .login-form {
@@ -120,16 +139,6 @@ input {
   transition: all 0.3s ease;
 }
 
-input:focus {
-  outline: none;
-  border-color: var(--accent-color);
-  background: rgba(255, 255, 255, 0.1);
-}
-
-input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
 .glow-button {
   width: 100%;
   padding: 1rem;
@@ -148,6 +157,18 @@ input::placeholder {
   background: #357abd;
   box-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
   transform: translateY(-2px);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: var(--container-width);
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
 }
 
 .level-grid {
@@ -259,6 +280,45 @@ input::placeholder {
 
 .back-button:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+/* Header Navigation Styles */
+.nav-menu {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
 }
 
 @keyframes floatUp {
