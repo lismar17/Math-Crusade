@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Crusade</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="mountain-bg"></div>
+
+    <div class="container">
+      <div id="login-section" class="login-form">
+        <h2>Welcome to Math Crusade</h2>
+        <div class="input-group">
+          <input type="text" id="username" placeholder="Username" />
+        </div>
+        <div class="input-group">
+          <input type="password" id="password" placeholder="Password" />
+        </div>
+        <button id="loginBtn" class="glow-button" onclick="login()">
+          Start Adventure
+        </button>
+      </div>
+
+      <div id="game-section" class="game-container" style="display: none">
+        <nav class="nav-menu">
+          <h3 class="logo">Math Crusade</h3>
+          <div class="nav-links">
+            <a href="#" id="leaderboard-link">Leaderboard</a>
+            <a href="#" onclick="logout()">Logout</a>
+          </div>
+        </nav>
+
+        <div class="level-select">
+          <h2>Choose Your Challenge</h2>
+
+          <div class="level-grid">
+            <div class="level-card" onclick="startLevel('addition')">
+              <h3>Addition</h3>
+              <div>+</div>
+            </div>
+
+            <div id="subtraction-level" class="level-card locked">
+              <div class="lock-icon">🔒</div>
+              <h3>Subtraction</h3>
+              <div>-</div>
+              <div class="points-needed">Unlock at 5 points</div>
+            </div>
+
+            <div id="multiplication-level" class="level-card locked">
+              <div class="lock-icon">🔒</div>
+              <h3>Multiplication</h3>
+              <div>×</div>
+              <div class="points-needed">Unlock at 10 points</div>
+            </div>
+
+            <div id="division-level" class="level-card locked">
+              <div class="lock-icon">🔒</div>
+              <h3>Division</h3>
+              <div>÷</div>
+              <div class="points-needed">Unlock at 15 points</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="problem-section" class="game-container" style="display: none">
+        <div class="battle-scene">
+          <div class="knight"></div>
+          <div class="problem-box">
+            <div id="problem" class="problem-text"></div>
+            <div class="options-container">
+              <button class="option-btn" data-index="0"></button>
+              <button class="option-btn" data-index="1"></button>
+              <button class="option-btn" data-index="2"></button>
+            </div>
+          </div>
+        </div>
+        <div class="score-container">Score: <span id="score">0</span></div>
+        <button id="backToLevels" class="back-button">Back to Levels</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
