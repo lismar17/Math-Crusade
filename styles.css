@@ -267,6 +267,55 @@ input {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.score-change {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  animation: floatUp 1s ease-out forwards;
+}
+
+.score-increase {
+  color: #4caf50;
+}
+
+.score-decrease {
+  color: #ff4444;
+}
+
+.wrong-answer {
+  animation: shake 0.5s ease-in-out;
+  background: rgba(255, 0, 0, 0.2) !important;
+  border-color: #ff4444 !important;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+
 .back-button {
   background: rgba(255, 255, 255, 0.1);
   border: none;

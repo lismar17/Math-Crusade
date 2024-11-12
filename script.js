@@ -137,11 +137,13 @@ function loadNextProblem() {
   });
 }
 
-function showScoreAnimation() {
+function showScoreAnimation(isCorrect) {
   const scoreContainer = document.querySelector(".score-container");
   const scoreChange = document.createElement("div");
-  scoreChange.className = "score-change";
-  scoreChange.textContent = "+1";
+  scoreChange.className = `score-change ${
+    isCorrect ? "score-increase" : "score-decrease"
+  }`;
+  scoreChange.textContent = isCorrect ? "+1" : "-1";
   scoreContainer.appendChild(scoreChange);
   setTimeout(() => scoreChange.remove(), 1000);
 }
@@ -150,12 +152,30 @@ function checkAnswer(selectedAnswer) {
   if (selectedAnswer === currentProblem.answer) {
     userScore += 1;
     document.getElementById("score").textContent = userScore;
-    showScoreAnimation();
+    showScoreAnimation(true);
     saveProgress();
     updateUnlockedLevels();
-    loadNextProblem(); // Load the next problem automatically
+    loadNextProblem();
   } else {
-    alert("Try again!");
+    // Deduct point but don't go below 0
+    if (userScore > 0) {
+      userScore -= 1;
+      document.getElementById("score").textContent = userScore;
+      showScoreAnimation(false);
+      saveProgress();
+      updateUnlockedLevels();
+    }
+
+    // Visual feedback for wrong answer
+    const options = document.querySelectorAll(".option-btn");
+    options.forEach((option) => {
+      if (parseInt(option.textContent) === selectedAnswer) {
+        option.classList.add("wrong-answer");
+        setTimeout(() => {
+          option.classList.remove("wrong-answer");
+        }, 1000);
+      }
+    });
   }
 }
 
